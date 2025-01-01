@@ -15,6 +15,11 @@ public class OfertaViagemDalRecuperaMaiorDesconto : IDisposable
         this.fixture = fixture;
     }
 
+    //utilizado como Teardown pois temos dois testes dentro da mesma conexão e na mesma tabela
+    //com isso não gera conflito nos testes, caso n tivesse haveria conflito entre ambos os testes
+    //por serem na mesma tabela
+    //poderia ser utilizado a biblioteca Respawn
+    //https://medium.com/@kova98/easy-test-database-reset-in-net-with-respawn-d5a59f995e9d
     public void Dispose()
     {
         fixture.LimpaDadosBanco();
